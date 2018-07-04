@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Modal, Text, Button, Platform } from 'react-native';
+import { StyleSheet, View, Platform } from 'react-native';
 import MissionButton from './components/MissionButton';
+import ModalFrame from './components/Modal'
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -34,25 +35,14 @@ export default class App extends Component {
             missionLocation={"Telstra - Broken Hill"}
             >
             </MissionButton>
-            <Button onPress={() => { this.ShowModalFunction(true) }} title="Click Here To Show Modal" />
-            <Modal
-              transparent={false}
-              animationType={"slide"}
-              visible={this.state.ModalVisibleStatus}
-              onRequestClose={ () => { this.ShowModalFunction(!this.state.ModalVisibleStatus)} } >
 
-              <View style={{ flex:1, justifyContent: 'center', alignItems: 'center' }}>
-                <View style={styles.ModalInsideView}>
-                    {/* add components to modal here! */}
-                    <Text style={styles.TextStyle}>Wow it finaly worked</Text>
-                    <Button  title="Click Here To Hide Modal" onPress={() => { this.ShowModalFunction(!this.state.ModalVisibleStatus)} } />
-                </View>
-              </View>
-            </Modal>
+            <ModalFrame visable={this.state.ModalVisibleStatus}>
+            </ModalFrame>
          </View>     
       );
    }
 }
+
 
 
 const styles = StyleSheet.create({
@@ -85,7 +75,9 @@ const styles = StyleSheet.create({
       marginBottom: 20, 
       color: "#fff",
       padding: 20,
-      textAlign: 'center'
+      // textAlign: 'center',
+      // fontFamily: 'SourceSansPro-Light',
+      // fontSize: 10,
     
 }
  
