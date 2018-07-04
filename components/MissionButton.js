@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
+import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 
 const MissionButton = ({ onPress, missionDate, missionTime, missionName, missionLocation }) => {
   const { buttonStyle, contentLeft, contentRight, buttonText } = styles;
@@ -32,7 +33,6 @@ const MissionButton = ({ onPress, missionDate, missionTime, missionName, mission
 const styles = {
   buttonText: {
     color: '#FFFFFF',
-    // fontFamily: 'SourceSansPro',
     fontSize: 28,
     // fontWeight: 400,
     // letterSpacing: -1.5,
@@ -59,7 +59,7 @@ const styles = {
 
   buttonStyle: {
     flexDirection: 'row',
-    height: 104,
+    height: moderateScale(70),
     alignSelf: 'stretch',
     backgroundColor: '#2DCD4F',
     borderRadius: 6,
